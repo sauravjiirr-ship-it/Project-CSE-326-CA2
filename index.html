@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choose and book a car, bike or scooter with Ride Easy.">
+  <title>Ride Easy | Vehicle Rental</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <a class="logo" href="#home">🚗 Ride Easy</a>
+      <div class="nav-links"><a href="#home">Home</a><a href="#vehicles">Vehicles</a><a href="#why">Why Us</a><a href="#contact">Contact</a><a href="#booking">Book Now</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">SIMPLE. AFFORDABLE. READY TO GO.</p>
+        <h1>Rent Your Ride Easily</h1>
+        <p>Affordable cars, bikes and scooters for your journey. Book your perfect vehicle quickly and easily.</p>
+        <form class="search-box" id="search-form">
+          <label class="visually-hidden" for="vehicle-type">Vehicle type</label>
+          <select id="vehicle-type"><option value="all">All vehicles</option><option value="car">Cars</option><option value="bike">Bikes</option><option value="scooter">Scooters</option></select>
+          <label class="visually-hidden" for="search-date">Pickup date</label>
+          <input id="search-date" type="date" aria-label="Pickup date">
+          <button type="submit">Search vehicles</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="vehicles">
+      <div class="section-title"><p class="eyebrow">FIND YOUR NEXT RIDE</p><h2>Available Vehicles</h2><p>Choose a vehicle according to your journey.</p></div>
+      <div class="vehicles">
+        <article class="card" data-type="car"><div class="vehicle-icon" aria-hidden="true">🚘</div><span class="vehicle-label">CAR</span><h3>Toyota Camry</h3><p>Comfortable premium sedan</p><div class="price">₹2,500 <small>/ day</small></div><button class="book-button" data-name="Toyota Camry" data-price="2500">Book now</button></article>
+        <article class="card" data-type="car"><div class="vehicle-icon" aria-hidden="true">🚙</div><span class="vehicle-label">CAR</span><h3>Hyundai Creta</h3><p>Powerful and comfortable SUV</p><div class="price">₹2,000 <small>/ day</small></div><button class="book-button" data-name="Hyundai Creta" data-price="2000">Book now</button></article>
+        <article class="card" data-type="car"><div class="vehicle-icon" aria-hidden="true">🚙</div><span class="vehicle-label">CAR</span><h3>Mahindra Thar</h3><p>Adventure ready SUV</p><div class="price">₹3,000 <small>/ day</small></div><button class="book-button" data-name="Mahindra Thar" data-price="3000">Book now</button></article>
+        <article class="card" data-type="bike"><div class="vehicle-icon" aria-hidden="true">🏍️</div><span class="vehicle-label">BIKE</span><h3>Royal Enfield</h3><p>Classic motorcycle experience</p><div class="price">₹1,200 <small>/ day</small></div><button class="book-button" data-name="Royal Enfield" data-price="1200">Book now</button></article>
+        <article class="card" data-type="bike"><div class="vehicle-icon" aria-hidden="true">🏍️</div><span class="vehicle-label">BIKE</span><h3>Yamaha R15</h3><p>Sporty performance bike</p><div class="price">₹1,000 <small>/ day</small></div><button class="book-button" data-name="Yamaha R15" data-price="1000">Book now</button></article>
+        <article class="card" data-type="scooter"><div class="vehicle-icon" aria-hidden="true">🛵</div><span class="vehicle-label">SCOOTER</span><h3>Honda Activa</h3><p>Easy and economical scooter</p><div class="price">₹700 <small>/ day</small></div><button class="book-button" data-name="Honda Activa" data-price="700">Book now</button></article>
+      </div>
+      <p id="no-vehicles" class="empty-message" hidden>No vehicles match this selection.</p>
+    </section>
+
+    <section class="booking-section" id="booking">
+      <div class="section-title"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Book Your Vehicle</h2><p>Enter your details and confirm your demo booking.</p></div>
+      <form class="booking-box" id="booking-form">
+        <div class="form-group"><label for="customer-name">Customer name</label><input id="customer-name" type="text" placeholder="Enter your name" required></div>
+        <div class="form-group"><label for="phone">Phone number</label><input id="phone" type="tel" placeholder="10 digit mobile number" maxlength="10" pattern="[0-9]{10}" title="Enter a 10 digit phone number" required></div>
+        <div class="form-group"><label for="selected-vehicle">Selected vehicle</label><select id="selected-vehicle" required><option value="">Select a vehicle</option><option value="Toyota Camry" data-price="2500">Toyota Camry</option><option value="Hyundai Creta" data-price="2000">Hyundai Creta</option><option value="Mahindra Thar" data-price="3000">Mahindra Thar</option><option value="Royal Enfield" data-price="1200">Royal Enfield</option><option value="Yamaha R15" data-price="1000">Yamaha R15</option><option value="Honda Activa" data-price="700">Honda Activa</option></select></div>
+        <div class="date-row"><div class="form-group"><label for="pickup-date">Pickup date</label><input id="pickup-date" type="date" required></div><div class="form-group"><label for="return-date">Return date</label><input id="return-date" type="date" required></div></div>
+        <div class="date-row"><div class="form-group"><label for="rental-days">Rental days</label><input id="rental-days" type="number" value="1" readonly></div><div class="form-group"><label for="total-amount">Total amount</label><input id="total-amount" type="text" value="₹0" readonly></div></div>
+        <button class="submit-button" type="submit">Confirm demo booking</button>
+        <p class="form-note">This is a student project demo. It does not save or process real bookings.</p>
+      </form>
+      <div class="confirmation" id="confirmation" role="status" aria-live="polite" hidden><h2>🎉 Booking Confirmed!</h2><p><strong>Demo booking ID:</strong> <span id="confirm-id"></span></p><p><strong>Name:</strong> <span id="confirm-name"></span></p><p><strong>Phone:</strong> <span id="confirm-phone"></span></p><p><strong>Vehicle:</strong> <span id="confirm-vehicle"></span></p><p><strong>Pickup:</strong> <span id="confirm-pickup"></span></p><p><strong>Return:</strong> <span id="confirm-return"></span></p><p><strong>Rental days:</strong> <span id="confirm-days"></span></p><p><strong>Total:</strong> <span id="confirm-total"></span></p><button id="new-booking" type="button">Book another vehicle</button></div>
+    </section>
+
+    <section id="why"><div class="section-title"><p class="eyebrow">A BETTER WAY TO TRAVEL</p><h2>Why Choose Ride Easy?</h2><p>Everything you need for a simple rental experience.</p></div><div class="why-grid"><article class="why-card"><div class="why-icon">💰</div><h3>Affordable</h3><p>Budget-friendly rental prices.</p></article><article class="why-card"><div class="why-icon">🚗</div><h3>Wide variety</h3><p>Cars, bikes and scooters.</p></article><article class="why-card"><div class="why-icon">⚡</div><h3>Fast booking</h3><p>Choose a ride in just a few steps.</p></article><article class="why-card"><div class="why-icon">📅</div><h3>Flexible dates</h3><p>Pick the dates that suit your trip.</p></article></div></section>
+  </main>
+  <footer id="contact"><a class="logo" href="#home">🚗 Ride Easy</a><p>Vehicle rentals made simple.</p><p>Email: support@rideeasy.example</p><p>© 2026 Ride Easy · Student project by <span>[Your Name]</span></p></footer>
+</body>
+</html>
